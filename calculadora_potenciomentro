@@ -1,0 +1,32 @@
+// C++ code
+//
+#include <Servo.h>
+
+int pir = 0;
+
+int pir2 = 0;
+
+Servo servo_3;
+
+void setup()
+{
+  servo_3.attach(3, 500, 2500);
+  pinMode(8, INPUT);
+  pinMode(9, INPUT);
+
+  servo_3.write(90);
+}
+
+void loop()
+{
+  pir = digitalRead(8);
+  pir2 = digitalRead(9);
+  if (pir == 1) {
+    servo_3.write(135);
+  }
+  delay(300); // Wait for 300 millisecond(s)
+  if (pir2 == 1) {
+    servo_3.write(45);
+  }
+  delay(300); // Wait for 300 millisecond(s)
+}
